@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <?php include "head.inc.phtml"; ?>
+    <title>listado</title>
+</head>
+<body>
+    <div class="container">
+        <?php include "header.inc.phtml" ?>
+        <table class="table">
+            <tr>
+                <th>id</th>
+                <th>Nombre</th>
+                <th>Peso</th>
+                <th>Radio</th>
+                <th>Superficie</th>
+                <th></th>
+            </tr>
+            <?php foreach ($planetas as $planeta) { ?>
+                <tr>
+                    <th><?= $planeta->id ?></th>
+                    <td><?= $planeta->nombre ?></td>
+                    <td><?= $planeta->peso ?></td>
+                    <td><?= $planeta->radio ?></td>                    
+                    <td><?= sprintf("%.2f",$planeta->calcularSuperficie()) ?></td>
+                    <th>
+                        <a title="editar" class="btn btn-secondary text-light" href="index.php?controller=editar&id=<?=$planeta->id?>"><i class="fa fa-edit"></i></a>
+                        <a title="borrar" class="btn btn-danger text-light" href="index.php?controller=borrar&id=<?=$planeta->id?>"><i class="fa fa-eraser"></i></a>
+                    </th>
+                </tr>
+            <?php } ?>
+        </table>
+    </div>
+</body>
+
+</html>
