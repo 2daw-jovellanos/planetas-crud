@@ -34,11 +34,11 @@ try {
             break;
     }
 } catch (OrmException $ex) {
-   http_response_code(501);
-    $error_msg = "[OrmException: " . $ex->message . "]";
+   http_response_code(500);
+    $error_msg = "[OrmException: " . $ex->getMessage() . "]";
     require "vistas/500.phtml";
 } catch (Exception $ex) {
-    http_response_code(501);
-    $error_msg = "[" . $ex->message . "]";
+    http_response_code(500);
+    $error_msg = "[" . $ex->getMessage() . "]";
     require "vistas/500.phtml";
 }
