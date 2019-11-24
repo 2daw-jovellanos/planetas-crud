@@ -15,3 +15,4 @@ Crud de una tabla en php, con aproximación a MVC (MVP)
 * `modelo` contiene el orm y las clases de soporte del modelo de datos.
 
 
+> Nota: el script `deploy.php` no forma parte del proyecto. Está ahí para facilitarme el despliegue en el servidor de aplicaciones.
