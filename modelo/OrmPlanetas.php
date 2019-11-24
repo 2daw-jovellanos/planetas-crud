@@ -16,14 +16,31 @@ class OrmPlanetas{
         $conn = $this->obtenerConexion();
         $sql = "SELECT id, nombre, radio, peso FROM planetas";
         $result = $conn->query($sql);//statment sin preparar, porque no tiene parámetros
+        $planetas = [];
         if ($result->num_rows > 0) {
-            $planetas = [];
             while($row = $result->fetch_object("Planeta")) {
                 array_push($planetas, $row);
             }
-            return $planetas;
+            
         }
         $conn->close();
+        return $planetas;
+    }
+
+    public function obtenerPlaneta($id){
+        $conn = $this->obtenerConexion();
+        $sql = "SELECT id, nombre, radio, peso FROM planetas WHERE id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $planeta = null;
+        if ($result->num_rows > 0) {
+            $planeta = $result->fetch_object("Planeta");
+        }
+        $stmt->close();            
+        $conn->close();
+        return $planeta;
     }
 
     public function insertar($planeta){
@@ -36,6 +53,25 @@ class OrmPlanetas{
         $conn->close();
     }
 
+    public function modificar($planeta){
+        $conn = $this->obtenerConexion();
+        $sql = "UPDATE planetas SET nombre=?, peso=?, radio=? WHERE id=?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("siii", $planeta->nombre, $planeta->peso, $planeta->radio,$planeta->id);
+        $stmt->execute();
+        $stmt->close();
+        $conn->close();
+    }
+
+    public function borrar($id){
+        $conn = $this->obtenerConexion();
+        $sql = "DELETE FROM planetas WHERE id=?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $stmt->close();
+        $conn->close();
+    }
 
 
 }

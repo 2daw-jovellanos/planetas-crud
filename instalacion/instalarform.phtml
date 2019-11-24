@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instalación</title>
+</head>
+
+<body>
+    <div style="margin:3px 20px;">
+    <h1>Instalación de app Planetas</h1>
+    <hr>
+    <p>Hola. Vamos a configurar la app para su primer uso.</p>
+    <p>Necesitaremos los siguientes datos de conexión a la BD de MySql:</p>
+    <?php if($error_msg) { ?>
+        <blockquote style="color:red">
+           ERROR: <?=$error_msg?>
+        </blockquote>
+    <?php } ?>
+    <form action="." method="POST">
+        <fieldset>
+            <label for="host">Host: nombre o IP</label>
+            <input type="text" placeholder="Ej: localhost" id="host" name="host">
+            <label for="user">Nombre de usuario</label>
+            <input type="text" placeholder="" id="user" name="user">
+            <label for="pass">Constraseña</label>
+            <input type="password" placeholder="" id="pass" name="pass">
+            <label for="name">Nombre de la base de datos.</label>
+            <input type="text" placeholder="" id="name" name="name">
+        </fieldset>
+        <button type="submit">Enviar</button>
+    </form>
+</div>
+</body>
+
+</html>

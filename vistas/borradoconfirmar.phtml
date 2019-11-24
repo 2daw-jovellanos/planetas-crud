@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <?php include "head.inc.phtml"; ?>
+    <title>listado</title>
+</head>
+
+<body>
+    <div class="container">
+        <?php include "header.inc.phtml" ?>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page"><a href=".">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Borrado</li>
+            <li class="breadcrumb-item active" aria-current="page">Confirmar</li>
+        </ol>
+        <div class="alert alert-warning" role="alert">
+            <h4 class="alert-heading">Atención</h4>
+            Confirme que desea borrar el planeta de id <?= $id ?>
+            <hr>
+            <a class="btn btn-primary" href="?controller=listado">No</a>
+            <a class="btn btn-danger" href="?controller=borrado-efectivo&id=<?= $id ?>">Sí</a>
+        </div>
+    </div>
+</body>
+
+</html>
