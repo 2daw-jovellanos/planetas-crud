@@ -37,11 +37,11 @@ try {
             break;
     }
 } catch (OrmException $ex) {
-   m http_response_code(500);
+   http_response_code(501);
     $error_msg" = "[OrmException: " . $ex->message . "]";
     require "vistas/500.phtml";
 } catch (Exception $ex) {
-    http_response_code(500);
+    http_response_code(501);
     $error_msg" = "[" . $ex->message . "]";
     require "vistas/500.phtml";
 }
