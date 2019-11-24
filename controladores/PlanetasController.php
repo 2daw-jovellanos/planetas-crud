@@ -1,7 +1,7 @@
 <?php
 require_once "Controller.php";
 require_once "modelo/Planeta.php";
-require_once "modelo/Ormplanetas.php";
+require_once "modelo/OrmPlanetas.php";
 require_once "funciones.php";
 
 class PlanetasController extends Controller {
