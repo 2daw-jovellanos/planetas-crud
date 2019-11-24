@@ -1,7 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 $router = true;
 require_once "cargarconfig.php";
 require_once "controladores/PlanetasController.php";
@@ -38,10 +35,10 @@ try {
     }
 } catch (OrmException $ex) {
    http_response_code(501);
-    $error_msg" = "[OrmException: " . $ex->message . "]";
+    $error_msg = "[OrmException: " . $ex->message . "]";
     require "vistas/500.phtml";
 } catch (Exception $ex) {
     http_response_code(501);
-    $error_msg" = "[" . $ex->message . "]";
+    $error_msg = "[" . $ex->message . "]";
     require "vistas/500.phtml";
 }
