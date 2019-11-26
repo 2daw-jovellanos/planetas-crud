@@ -22,7 +22,7 @@
                 <th>Peso</th>
                 <th>Radio</th>
                 <th>Superficie</th>
-                <th></th>
+                <th>Acciones</th>
             </tr>
             <?php foreach ($planetas as $planeta) { ?>
                 <tr>
@@ -31,10 +31,10 @@
                     <td><?= $planeta->peso ?></td>
                     <td><?= $planeta->radio ?></td>
                     <td><?= sprintf("%.2f", $planeta->calcularSuperficie()) ?></td>
-                    <th>
+                    <td>
                         <a title="editar" class="btn btn-secondary text-light" href="?controller=modificacion&id=<?= $planeta->id ?>"><i class="fa fa-edit"></i></a>
                         <a title="borrar" class="btn btn-danger text-light" href="?controller=borrado&id=<?= $planeta->id ?>"><i class="fa fa-eraser"></i></a>
-                    </th>
+                    </td>
                 </tr>
             <?php } ?>
         </table>
